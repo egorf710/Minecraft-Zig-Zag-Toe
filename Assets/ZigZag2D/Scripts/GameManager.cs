@@ -137,11 +137,38 @@ namespace TunnelGame
             if (!Application.isMobilePlatform)
 			{
 				mobileDevice = false;
-				startUI = startUIPC;
-				playerSelectUI = playerSelectUIPC;
-				gameUI = gameUIPC;
-				overUI = overUIPC;
-			}
+				startUI.transform.position = startUIPC.transform.position;
+				for (int i = 0; i < startUI.transform.childCount; i++)
+				{
+					startUI.transform.GetChild(i).position = startUIPC.transform.GetChild(i).position;
+					(startUI.transform.GetChild(i) as RectTransform).anchoredPosition =
+						(startUIPC.transform.GetChild(i) as RectTransform).anchoredPosition;
+                }
+
+				playerSelectUI.transform.position = playerSelectUIPC.transform.position;
+                for (int i = 0; i < startUI.transform.childCount; i++)
+                {
+                    playerSelectUI.transform.GetChild(i).position = playerSelectUIPC.transform.GetChild(i).position;
+                    (playerSelectUI.transform.GetChild(i) as RectTransform).anchoredPosition =
+						(playerSelectUIPC.transform.GetChild(i) as RectTransform).anchoredPosition;
+                }
+
+                gameUI.transform.position = gameUIPC.transform.position;
+                for (int i = 0; i < startUI.transform.childCount; i++)
+                {
+                    gameUI.transform.GetChild(i).position = gameUIPC.transform.GetChild(i).position;
+                    (gameUI.transform.GetChild(i) as RectTransform).anchoredPosition =
+						(gameUIPC.transform.GetChild(i) as RectTransform).anchoredPosition;
+                }
+
+                overUI = overUIPC;
+                for (int i = 0; i < startUI.transform.childCount; i++)
+                {
+                    overUI.transform.GetChild(i).transform.position = overUIPC.transform.GetChild(i).position;
+                    (overUI.transform.GetChild(i) as RectTransform).anchoredPosition =
+						(overUIPC.transform.GetChild(i) as RectTransform).anchoredPosition;
+                }
+            }
             if (!gameCamera.orthographic)
 			{
 				Debug.LogError("GameCamera must be an orthographic camera!");
