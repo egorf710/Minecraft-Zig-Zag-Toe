@@ -35,17 +35,24 @@ namespace TunnelGame
 			Playing,
 			Over
 		}
+        #endregion
 
-		#endregion
+        #region Inspector Variables
 
-		#region Inspector Variables
-
-		[SerializeField] private bool		showCollisionBoxesInScene;
+        [SerializeField] private bool		showCollisionBoxesInScene;
 		[SerializeField] private Camera		gameCamera;
-		[SerializeField] private GameObject	startUI;
-		[SerializeField] private GameObject	playerSelectUI;
-		[SerializeField] private GameObject	gameUI;
-		[SerializeField] private GameObject	overUI;
+
+        [SerializeField] private GameObject startUIPC;
+        [SerializeField] private GameObject playerSelectUIPC;
+        [SerializeField] private GameObject gameUIPC;
+        [SerializeField] private GameObject overUIPC;
+
+        [SerializeField] private GameObject	startUI;
+        [SerializeField] private GameObject	playerSelectUI;
+        [SerializeField] private GameObject	gameUI;
+        [SerializeField] private GameObject	overUI;
+
+		[SerializeField] private bool		mobileDevice = true;
 		
 		[SerializeField] private PlayerInfo[]	playerInfos;
 		[SerializeField] private float			speed;
@@ -127,7 +134,15 @@ namespace TunnelGame
 		
 		private void Start()
 		{
-			if (!gameCamera.orthographic)
+            if (!Application.isMobilePlatform)
+			{
+				mobileDevice = false;
+				startUI = startUIPC;
+				playerSelectUI = playerSelectUIPC;
+				gameUI = gameUIPC;
+				overUI = overUIPC;
+			}
+            if (!gameCamera.orthographic)
 			{
 				Debug.LogError("GameCamera must be an orthographic camera!");
 				return;

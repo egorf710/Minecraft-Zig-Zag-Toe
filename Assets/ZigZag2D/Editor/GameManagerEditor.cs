@@ -53,7 +53,11 @@ namespace TunnelGame
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("playerSelectUI"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("gameUI"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("overUI"));
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("showCollisionBoxesInScene"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("startUIPC"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("playerSelectUIPC"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("gameUIPC"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("overUIPC"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("showCollisionBoxesInScene"));
 
 			if (GUILayout.Button("Clear Saved Data"))
 			{
