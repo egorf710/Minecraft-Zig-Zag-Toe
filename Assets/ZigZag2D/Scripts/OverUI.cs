@@ -29,8 +29,8 @@ namespace TunnelGame
 		private void OnEnable()
 		{
 			scoreText.text			= GameManager.Instance.CurrentScore.ToString();
-			highScoreText.text		= "HIGHSCORE: " + GameManager.Instance.HighScore;
-			averageScoreText.text	= "AVERAGE: " + GameManager.Instance.AverageScore;
+			highScoreText.text		= "РЕКОРД: " + GameManager.Instance.HighScore;
+			averageScoreText.text	= "СРЕДНЕЕ: " + GameManager.Instance.AverageScore;
 		}
 
 		private void Update()

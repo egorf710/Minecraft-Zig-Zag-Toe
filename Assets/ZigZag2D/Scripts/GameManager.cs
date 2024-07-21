@@ -148,9 +148,9 @@ namespace TunnelGame
 				playerSelectUI.transform.position = playerSelectUIPC.transform.position;
                 for (int i = 0; i < startUI.transform.childCount; i++)
                 {
-                    playerSelectUI.transform.GetChild(i).position = playerSelectUIPC.transform.GetChild(i).position;
-                    (playerSelectUI.transform.GetChild(i) as RectTransform).anchoredPosition =
-						(playerSelectUIPC.transform.GetChild(i) as RectTransform).anchoredPosition;
+                    //playerSelectUI.transform.GetChild(i).position = playerSelectUIPC.transform.GetChild(i).position;
+                    //(playerSelectUI.transform.GetChild(i) as RectTransform).anchoredPosition =
+						//(playerSelectUIPC.transform.GetChild(i) as RectTransform).anchoredPosition;
                 }
 
                 gameUI.transform.position = gameUIPC.transform.position;
