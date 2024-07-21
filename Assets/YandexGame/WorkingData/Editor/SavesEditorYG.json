@@ -1,5 +1,5 @@
 {
-    "idSave": 150,
+    "idSave": 179,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -10,10 +10,10 @@
         true,
         false
     ],
-    "CurrentPlayerIndex": 3,
+    "CurrentPlayerIndex": 0,
     "HighScore": 283,
-    "AverageScore": 37,
-    "TimesPlayed": 39,
-    "DropsCollected": 16.0,
-    "UnlockedPlayerInfos": "0;1;2;3"
+    "AverageScore": 42,
+    "TimesPlayed": 46,
+    "DropsCollected": 45.0,
+    "UnlockedPlayerInfos": "0;1;2;3;8;4"
 }
