@@ -217,9 +217,10 @@ namespace TunnelGame
 			// Setup the game to be played
 			Reset();
 		}
-		
-		private void Update()
+        bool ad = false;
+        private void Update()
 		{
+
 			// If the game state is not playing then don't do anything in the update loop
 			if (gameState != GameState.Playing)
 			{
@@ -227,6 +228,11 @@ namespace TunnelGame
 				if (gameState == GameState.Over)
 				{
 					UpdateCameraPosition();
+					if(!ad)
+					{
+						FindAnyObjectByType<AdsReward>().OpenFullScrAd();
+						ad = true;
+					}
 				}
 
 				return;
@@ -264,8 +270,9 @@ namespace TunnelGame
 
 		public void Reset()
 		{
-			// Set the current score to 0
-			CurrentScore = 0;
+			ad = false;
+            // Set the current score to 0
+            CurrentScore = 0;
 
 			// Clear the drop info
 			drops.Clear();
@@ -322,8 +329,9 @@ namespace TunnelGame
 		/// Changes the state of the game and updates the UI
 		/// </summary>
 		public void ChangeGameState(GameState newGameState)
-		{
-			startUI.gameObject.SetActive(newGameState == GameState.Idle);
+        {
+            FindObjectOfType<CloudSave>().Save();
+            startUI.gameObject.SetActive(newGameState == GameState.Idle);
 			playerSelectUI.gameObject.SetActive(newGameState == GameState.PlayerSelect);
 			gameUI.gameObject.SetActive(newGameState == GameState.Playing);
 			overUI.gameObject.SetActive(newGameState == GameState.Over);
