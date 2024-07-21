@@ -226,8 +226,9 @@ namespace TunnelGame
 			{
 				// Keep updating the camera position on game over so it smoothly moves to center the player
 				if (gameState == GameState.Over)
-				{
-					UpdateCameraPosition();
+                {
+                    FindAnyObjectByType<CloudSave>().audioSource.Stop();
+                    UpdateCameraPosition();
 					if(!ad)
 					{
 						FindAnyObjectByType<AdsReward>().OpenFullScrAd();
@@ -266,7 +267,10 @@ namespace TunnelGame
 		public void Play()
 		{
 			ChangeGameState(GameState.Playing);
-		}
+			AudioSource c = FindAnyObjectByType<CloudSave>().audioSource;
+            c.Stop();
+			c.PlayOneShot(c.clip);
+        }
 
 		public void Reset()
 		{
@@ -330,14 +334,15 @@ namespace TunnelGame
 		/// </summary>
 		public void ChangeGameState(GameState newGameState)
         {
-            FindObjectOfType<CloudSave>().Save();
+
             startUI.gameObject.SetActive(newGameState == GameState.Idle);
 			playerSelectUI.gameObject.SetActive(newGameState == GameState.PlayerSelect);
 			gameUI.gameObject.SetActive(newGameState == GameState.Playing);
 			overUI.gameObject.SetActive(newGameState == GameState.Over);
 			
 			gameState = newGameState;
-		}
+            FindObjectOfType<CloudSave>().Save();
+        }
 
 		/// <summary>
 		/// Shows the player select UI screen

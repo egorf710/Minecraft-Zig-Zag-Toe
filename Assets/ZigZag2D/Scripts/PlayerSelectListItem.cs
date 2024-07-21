@@ -9,6 +9,7 @@ namespace TunnelGame
 		#region Inspector Variables
 
 		[SerializeField] private Image		iconImage;
+		[SerializeField] private AudioSource aSource;
 		[SerializeField] private Text		coinAmountText;
 		[SerializeField] private GameObject	unlockButton;
 		[SerializeField] private GameObject	selectButton;
@@ -52,17 +53,20 @@ namespace TunnelGame
 
 		public void UnlockClicked()
 		{
-			GameManager.PlayerInfo playerInfo = GameManager.Instance.PlayerInfos[playerInfoIndex];
+
+
+            GameManager.PlayerInfo playerInfo = GameManager.Instance.PlayerInfos[playerInfoIndex];
 
 			if (GameManager.Instance.DropsCollected >= playerInfo.unlockAmount)
-			{
-				GameManager.Instance.DropsCollected	-= playerInfo.unlockAmount;
+            {
+
+                GameManager.Instance.DropsCollected	-= playerInfo.unlockAmount;
 				GameManager.Instance.SwapPlayer(playerInfoIndex);
 				GameManager.Instance.UnlockedPlayerInfos += ";" + playerInfoIndex;
 
 				playerInfo.locked = false;
-				
-				unlockButton.SetActive(playerInfo.locked);
+                aSource.Play();
+                unlockButton.SetActive(playerInfo.locked);
 				selectButton.SetActive(!playerInfo.locked);
 			}
 		}

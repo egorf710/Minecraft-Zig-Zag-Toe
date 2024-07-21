@@ -8,6 +8,7 @@ using YG;
 
 public class CloudSave : MonoBehaviour
 {
+    public AudioSource audioSource;
     public GameManager gameManager;
     public YandexGame sdk;
 
@@ -15,6 +16,7 @@ public class CloudSave : MonoBehaviour
     {
         if(YandexGame.SDKEnabled)
         {
+
             LoadSaveCloud();
         }
     }
@@ -40,6 +42,6 @@ public class CloudSave : MonoBehaviour
         YandexGame.savesData.UnlockedPlayerInfos = gameManager.UnlockedPlayerInfos;
         print("SAVE\n" + YandexGame.savesData.HighScore);
         YandexGame.SaveProgress();
-        YandexGame.SaveCloud();
+
     }
 }
