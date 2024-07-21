@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using YG;
 
 namespace TunnelGame
 {
@@ -233,6 +234,7 @@ namespace TunnelGame
 					{
 						FindAnyObjectByType<AdsReward>().OpenFullScrAd();
 						ad = true;
+						YandexGame.NewLeaderboardScores("Leaders", (int)HighScore);
 					}
 				}
 
