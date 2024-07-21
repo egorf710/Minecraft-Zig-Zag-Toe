@@ -57,8 +57,8 @@ namespace TunnelGame
 			averageScoreMarker.gameObject.SetActive(averageScore != 0 && averageScore != highScore);
 
 			currentScoreText.text		= GameManager.Instance.CurrentScore.ToString();
-			highScoreMarkerText.text	= "High: " + highScore;
-			averageScoreMarkerText.text	= "Average: " + averageScore;
+			highScoreMarkerText.text	= "Рекорд: " + highScore;
+			averageScoreMarkerText.text	= "Среднее: " + averageScore;
 
 			highScoreMarker.anchoredPosition	= new Vector2(highScoreMarker.anchoredPosition.x, GameManager.Instance.HighScoreYPos * scale);
 			averageScoreMarker.anchoredPosition	= new Vector2(averageScoreMarker.anchoredPosition.x, GameManager.Instance.AverageScoreYPos * scale);
