@@ -232,7 +232,7 @@ namespace TunnelGame
                     UpdateCameraPosition();
 					if(!ad)
 					{
-						FindAnyObjectByType<AdsReward>().OpenFullScrAd();
+
 						ad = true;
 						YandexGame.NewLeaderboardScores("Leaders", (int)HighScore);
 						print("upd lbdr");
